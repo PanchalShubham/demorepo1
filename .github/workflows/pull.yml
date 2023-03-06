@@ -13,8 +13,8 @@ jobs:
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username panchalshubham --password-stdin
           while true
           do
-            docker image rm ghcr.io/panchalshubham/busybox:latest
             docker pull ghcr.io/panchalshubham/busybox:latest
+            docker image rm ghcr.io/panchalshubham/busybox:latest
           done
 
 

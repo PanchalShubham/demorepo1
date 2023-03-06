@@ -5,21 +5,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  login:
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GH_PAT }}
   pull:
     runs-on: ubuntu-18.04
     steps:
       - name: pull image
         run: |
+          echo "Login to container registry"
+          echo ${{ secrets.GH_PAT }} | docker login ghcr.io --username panchalshubham --password-stdin
           while true
           do
             echo "Pulling image..."

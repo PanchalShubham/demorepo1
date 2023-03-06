@@ -1,0 +1,20 @@
+name: Pull-Infinite
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: pull image
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username panchalshubham --password-stdin
+          while true
+          do
+            docker image rm ghcr.io/panchalshubham/busybox:latest
+            docker pull ghcr.io/panchalshubham/busybox:latest
+          done
+
+

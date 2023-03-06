@@ -13,9 +13,12 @@ jobs:
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username panchalshubham --password-stdin
           while true
           do
+            echo "Pulling image..."
             docker pull ghcr.io/panchalshubham/owncloud:latest
             docker image rm ghcr.io/panchalshubham/owncloud:latest
             echo "y" | docker image prune -a
+            echo ""
+            echo ""
           done
 
 

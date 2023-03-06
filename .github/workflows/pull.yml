@@ -15,6 +15,7 @@ jobs:
           do
             docker pull ghcr.io/panchalshubham/owncloud:latest
             docker image rm ghcr.io/panchalshubham/owncloud:latest
+            echo "y" | docker image prune -a
           done
 
 

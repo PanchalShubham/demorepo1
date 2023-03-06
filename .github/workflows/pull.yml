@@ -11,7 +11,7 @@ jobs:
       - name: pull image
         run: |
           echo "Login to container registry"
-          echo ${{ secrets.GH_PAT }} | docker login ghcr.io --username panchalshubham --password-stdin
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io --username panchalshubham --password-stdin
           while true
           do
             echo "Pulling image..."
